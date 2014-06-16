@@ -33,6 +33,41 @@ public class Calculadora extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String x=request.getParameter("x");
+		String y=request.getParameter("y");
+		String operacion=request.getParameter("operacion");
+		double res=0;
+		int w=0;
+		if(operacion.equalsIgnoreCase("mas"))
+			w=1;
+		if(operacion.equalsIgnoreCase("por"))
+			w=2;
+		if(operacion.equalsIgnoreCase("menos"))
+			w=1;
+		if(operacion.equalsIgnoreCase("divicion"))
+			w=1;
+		
+		switch(w){
+		case 1: res=Double.parseDouble(x)+Double.parseDouble(y);
+					break;
+		case 2:res=Double.parseDouble(x)*Double.parseDouble(y);
+		break;
+		case 3:res=Double.parseDouble(x)-Double.parseDouble(y);
+		break;
+		case 4:res=Double.parseDouble(x)/Double.parseDouble(y);
+		break;
+		}
+		
+		PrintWriter writer=response.getWriter();
+		writer.print(""
+				+ "<html>"
+				+ "<head>"
+				+ "<title>Resultado</title>"
+				+ "</head>"
+				+ "<body>"
+				+ x+operacion+y+"="+res
+				+ "</body>"
+				+ "</html>");
 	}
 
 }
