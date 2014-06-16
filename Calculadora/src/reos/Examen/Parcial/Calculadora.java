@@ -43,9 +43,9 @@ public class Calculadora extends HttpServlet {
 		if(operacion.equalsIgnoreCase("por"))
 			w=2;
 		if(operacion.equalsIgnoreCase("menos"))
-			w=1;
+			w=3;
 		if(operacion.equalsIgnoreCase("divicion"))
-			w=1;
+			w=4;
 		
 		switch(w){
 		case 1: res=Double.parseDouble(x)+Double.parseDouble(y);
@@ -65,7 +65,7 @@ public class Calculadora extends HttpServlet {
 				+ "<title>Resultado</title>"
 				+ "</head>"
 				+ "<body>"
-				+ x+operacion+y+"="+res
+				+ x+" "+operacion+" "+y+"="+res
 				+ "</body>"
 				+ "</html>");
 	}
